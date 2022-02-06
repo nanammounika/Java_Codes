@@ -1,0 +1,83 @@
+Bus Management
+
+Create a class Bus with below attributes
+busNo- int 
+travelsName- String
+passengerCount- int
+busStop- int
+The above attributes should be private, write getters, setters and parameterized construcor as required.
+
+Create a class Solution with main method.
+Implement two static methods- countTotalPassengers and searchBus in Solution class.
+
+1.countTotalPassengers method:
+This method will take 2 input parameters-an Array of Bus objects and a int value. The method will return the count of total passengers of the buses having busStop
+greater than the given stop(passed as input parameter).
+If no such buses exists which satisfies the given condition than the method should return 0.
+2.searchBus method:
+The method will take 2 input parameters-an array of company objects and a int value. The method will return the bus object with second highest bus stops having count
+of passengers greater than np of passengers(int value passed as input parameter)
+If there are no such bus found which satisfies the condition than the mehtod return null.
+
+Note:
+1.No 2 bus object will have the same passenger count and busstops.
+2.There will always be either 0 or atleast 2 bus objects in the input testcases which satisfies the given condition in the methods.
+
+for countTotalPassengers method:
+The mainmethod should print the total count of passengers returned by the method as it is, if the returned value is not 0 or it should print "no such bus found".
+for searchBus method:
+The main method should print the Travels name and busStop as shown in below example for the object returned by the method, if the return objeect is no null or it
+should print "no such bus exists".
+
+Before caling these static methods in main, use Scanner object to read the values of fourBus objects referring attributes in the above mentioned attribute sequence.
+Next, read the value for stop(int) and no of passenger(int) to be passed in the methods as input parameters respectively.
+
+Consider below sample input and outpur:
+Input1:
+12
+Star
+24
+5
+13
+Excel
+34
+6
+14
+Tiwary
+44
+7
+15
+Deccan
+45
+8
+6
+32
+
+Output1:
+89
+Tiwary
+7
+
+Input2:
+12
+Star
+24
+5
+13
+Excel
+34
+6
+14
+Tiwary
+44
+7
+15
+Deccan
+45
+8
+10
+60
+
+Output2:
+no such bus found
+no such bus exists
