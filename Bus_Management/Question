@@ -81,3 +81,21 @@ Deccan
 Output2:
 no such bus found
 no such bus exists
+
+Starter Code:
+import java.util.Scanner;
+public class Solution
+{
+public static void main(String[] args)
+{
+//code to read values
+//code to call required method
+//code to display the result
+}
+
+//code the first method
+
+//code the second method
+}
+
+//code to build the class
