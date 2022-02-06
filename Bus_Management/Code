@@ -1,0 +1,137 @@
+package com.tata;
+import java.util.Scanner;
+import java.util.PriorityQueue;
+
+public class Solution {
+	public static void main(String args[] ){
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+        Bus[] b = new Bus[4];
+        
+        for(int i = 0; i < 4; i++) {
+        	int busNo = sc.nextInt();
+        	sc.nextLine();
+        	String travelsName = sc.nextLine();
+        	int passengerCount = sc.nextInt();
+        	sc.nextLine();
+        	int busStop = sc.nextInt();
+        	sc.nextLine();
+        	b[i] = new Bus(busNo, travelsName, passengerCount, busStop);
+        	}
+        
+        int m = sc.nextInt();
+        int n=sc.nextInt();
+        int ans=countTotalPassenger(b, m);
+        if(ans!=0)
+            System.out.println(ans);
+        else
+            System.out.println("no such bus found");
+        Bus s1 = searchBus(b, n);
+        
+        if(s1 == null) {
+        	System.out.println("no such bus exists");
+        	}
+        else {
+        	System.out.println(s1.getTravelsName());
+            System.out.println(s1.getBusStop());
+            }
+        }
+
+    public static int countTotalPassenger(Bus[] b,int value){
+        int l = b.length;
+        int count=0;
+        if(b!=null && value>0)
+        {
+        	for(int i = 0; i < l; i++)
+            {
+                if(b[i].getBusStop()>value)
+                    count=count+b[i].getPassengerCount();
+            }
+        }
+        if(count!=0)
+        return count;
+        else
+            return 0;
+    }
+
+    public static Bus searchBus(Bus[]b,int val) {
+        Bus m=null;
+        PriorityQueue<Integer> pq=new PriorityQueue<>();
+        
+        if(b!=null && val>0) {
+            for (int i = 0; i <b.length ; i++){
+                if(b[i].getPassengerCount()>=val){
+                    pq.add(b[i].getBusStop());
+                }
+            }
+            
+            while(pq.size()>2){
+                pq.poll();
+            }
+            
+            if(pq.size()>1) {
+            	double z=pq.peek();
+                for (int i = 0; i <b.length ; i++){
+                    if(b[i].getBusStop()==z){
+                        m=b[i];
+                    }
+                }   	
+            }
+        }
+     
+        
+        if(m!=null){
+            return m;
+        }
+        else{
+            return null;
+        }
+    }
+}
+
+
+class Bus{
+	int busNo;
+	String travelsName;
+	int passengerCount;
+	int busStop;
+
+	Bus(int busNo, String travelsName,  int passengerCount,  int busStop) {
+		this.busNo = busNo;
+		this.travelsName =travelsName;
+		this.passengerCount= passengerCount;
+		this.busStop = busStop;
+		}
+	public int getBusNo() {
+		return busNo;
+		}
+
+	public void  setBusNo(int busNo) {
+		this.busNo = busNo;
+		}
+
+	public String getTravelsName() {
+		return travelsName;
+		}
+
+	public void  setTravelsName(String travelsName) {
+		this.travelsName = travelsName;
+		}
+
+	public int getPassengerCount() {
+		return passengerCount;
+		}
+
+	public void  setPassengerCount(int passengerCount) {
+		this.passengerCount = passengerCount;
+		}
+
+	public int getBusStop() {
+		return busStop;
+		}
+
+	public void  setBusStop(int busStop) {
+		this.busStop= busStop;
+		}
+
+}
