@@ -133,5 +133,4 @@ class Bus{
 	public void  setBusStop(int busStop) {
 		this.busStop= busStop;
 		}
-
 }
