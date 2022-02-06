@@ -1,0 +1,79 @@
+Corn IRA set:
+
+Create a class Corn with the below attributes:
+cornType - String
+cornName - String
+protein(in grams) - double
+price - int
+The above attributes should be private. Wtrite getter, setter and parameterized constructor as required.
+Create class Solution with main method.
+
+Implement two static methods-
+averageProteinByType and sortCornByPrice in Solution class.
+averageProteinByType method:
+This method will take an array of Corn objects and a String values as input parameters.The method will find out average protein for given Corn Type(String parameter passed).
+This method will return average protein if found. If there is no Corn that matches then the method should return 0.0
+sortCornByPrice method:
+This method will take an array of Corn objects and a int value as input parameters.This method should return array of Corn objects in an ascending order of their price
+which are less than the given price(int parameter passed).If there is no such Corn,  then the method should return null.
+
+Note: No two Corn objects would have same price and name.Search should be case insensitive.
+
+The above mentioned static methods should be called from the main method.
+For averageProteinByType method - The main method should print the average protein, if the returned value is not 0.0. 
+Else, it should print "There is no such Corn available.".
+For sortCornByPrice method - The main method should print the CornName from the returned Corn object arrary if the returned value is not null. 
+If the returned value is null, then it should print "No Corn found.".
+Before calling these static methods in main, use Scanner object to read the values of four Corn objects referring attributes in the above mentioned attribute sequence.
+Next, read the value for String parameter and int parameter for capturing Corn Type and price respectively.
+
+Consider below sample input and output: 
+Input1:					
+Sweet					
+Ambrosia Hybrid				
+3.7					
+101					
+flint					
+Zea mays				
+2.8					
+80					
+Sweet					
+Golden Bantam				
+3.1					
+91					
+Sweet					
+Ruby Queen				
+2.2					
+45					
+Sweet					
+99
+
+Outpur1:
+3.0
+Ruby Queen				
+Zea mays				
+Golden Bantam
+					
+Input2:
+Sweet
+Blue hopl 
+3.27
+121
+Dent
+yellow Dent
+2.38
+90
+Sweet
+Nirvana
+2.21
+72
+Sweet
+Picasso Hybrid
+2.81
+50
+PopCorn
+19
+
+Output2:
+There is no such Corn available.
+No Corn found.
