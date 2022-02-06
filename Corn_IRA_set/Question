@@ -24,6 +24,7 @@ For averageProteinByType method - The main method should print the average prote
 Else, it should print "There is no such Corn available.".
 For sortCornByPrice method - The main method should print the CornName from the returned Corn object arrary if the returned value is not null. 
 If the returned value is null, then it should print "No Corn found.".
+
 Before calling these static methods in main, use Scanner object to read the values of four Corn objects referring attributes in the above mentioned attribute sequence.
 Next, read the value for String parameter and int parameter for capturing Corn Type and price respectively.
 
