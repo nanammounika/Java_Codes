@@ -77,3 +77,20 @@ PopCorn
 Output2:
 There is no such Corn available.
 No Corn found.
+
+Starter Code:
+import java.util.Scanner;
+public class Solution
+{
+public static void main(String[] args)
+{
+//code to read values
+//code to call required method
+//code to display the result
+}
+//code mrthods
+}
+class Corn
+{
+//code to build the class
+}
