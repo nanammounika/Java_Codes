@@ -1,4 +1,4 @@
-Device_Management:
+Device_Management:Java
 
 Create a class Phone with below attributes:
 phoneId - int 
