@@ -1,0 +1,102 @@
+package com.test;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Solution {
+	public static void main(String[] args) {
+		@SuppressWarnings("resource")
+		Scanner scan = new Scanner(System.in);
+		Corn[] c = new Corn[4];
+		
+		for (int i = 0; i < 4; i++) {
+			String cornType = scan.nextLine();
+			String cornName = scan.nextLine();
+			double protein = scan.nextDouble();
+			scan.nextLine();
+			int price = scan.nextInt();
+			scan.nextLine();
+			c[i] = new Corn(cornType, cornName, protein, price);
+			}
+		
+		String name = scan.nextLine();
+		int pri = scan.nextInt();
+		double avg = averageProteinByType(c, name);
+		if (avg > 0.0) {
+			System.out.println(avg);
+			} else {
+				System.out.println("There is no such Corn available.");
+				}
+
+		Corn[] sc = sortCornByPrice(c, pri);
+		if (sc != null && sc.length > 0) {
+			for (Corn corns : sc) {
+				System.out.println(corns.getCornName());
+				}
+			}else {
+				System.out.println("No Corn found.");
+				}
+		}
+	
+	public static double averageProteinByType(Corn[] corns, String cornType) {
+		double avg = 0.0;
+		if (corns == null || cornType == null) {
+			return avg;
+			}
+		return Arrays.stream(corns).filter(c -> c.getCornType() != null && c.getCornType().equalsIgnoreCase(cornType))
+				.mapToDouble(c -> c.getProtein()).average().orElse(avg);
+		}
+	
+	public static Corn[] sortCornByPrice(Corn[] corns, int price) {
+		if (corns == null) {
+			return null;
+			}
+		return Arrays.stream(corns).filter(c -> c.getPrice() < price)
+				.sorted((c1, c2) -> Integer.compare(c1.getPrice(), c2.getPrice())).toArray(Corn[]::new);
+		}
+}
+
+class Corn {
+	String cornType;
+	String cornName;
+	double protein;
+	int price;
+	
+	Corn(String cornType, String cornName, double protein, int price) {
+		this.cornType = cornType;
+		this.cornName = cornName;
+		this.protein = protein;
+		this.price = price;
+		}
+
+	public String getCornType() {
+		return cornType;
+		}
+
+	public void setCornType(String cornType) {
+		this.cornType = cornType;
+		}
+
+	public String getCornName() {
+		return cornName;
+		}
+
+	public void setCornName(String cornName) {
+		this.cornName = cornName;
+		}
+
+	public double getProtein() {
+		return protein;
+		}
+
+	public void setProtein(double protein) {
+		this.protein = protein;
+		}
+
+	public int getPrice() {
+		return price;
+		}
+
+	public void setPrice(int price) {
+		this.price = price;
+		}
+}
