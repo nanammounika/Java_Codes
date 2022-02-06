@@ -1,0 +1,101 @@
+package com.device.management;
+import java.util.Scanner;
+
+public class Solution {
+	public static void main(String[] args) {
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		Phone[] p = new Phone[4];
+		
+		for(int i=0; i<4; i++) {
+			int phoneId = sc.nextInt();
+			sc.nextLine();
+			String os = sc.nextLine();
+			String brand = sc.nextLine();
+			int price = sc.nextInt();
+			sc.nextLine();
+			p[i] = new Phone(phoneId, os, brand, price);
+			}
+		
+		String searchBrand = sc.nextLine();
+		String searchOs = sc.nextLine();
+		
+		int priceResult = findPriceForGivenBrand(p, searchBrand);
+		if(priceResult!=0) {
+			System.out.println(priceResult);
+		}
+		else {
+			System.out.println("The given Brand is not available");
+		}
+		
+		Phone phoneResult = getPhoneIdBasedOnOs(p, searchOs);
+		if(phoneResult!= null) {
+			System.out.println(phoneResult.phoneId);
+		}
+		else {
+			System.out.println("No phones are available with specified os and price range.");
+			}
+		}
+	
+	public static int findPriceForGivenBrand(Phone[] p, String brand) {
+		int price = 0;
+		for(int i=0; i<p.length; i++) {
+			if(p[i].getBrand().equalsIgnoreCase(brand)) {
+				price += p[i].getPrice();
+			}
+		}
+		if(price>0)
+			return price;
+		else
+			return 0;
+	}
+	
+	public static Phone getPhoneIdBasedOnOs(Phone[] p, String os) {
+		Phone temp = null;
+		for(int i=0; i<p.length; i++) {
+			if(p[i].getOs().equalsIgnoreCase(os) && p[i].getPrice()>=5000) {
+				temp = p[i];
+				return temp;
+			}
+		}
+		return temp;
+	}
+
+}
+class Phone{
+	int phoneId;
+	String os;
+	String brand;
+	int price;
+	
+	Phone(int phoneId, String os, String brand, int price){
+		this.phoneId=phoneId;
+		this.os=os;
+		this.brand=brand;
+		this.price=price;
+	}
+	public int getPhoneId() {
+		return phoneId;
+	}
+	public void setPhoneId(int phoneId) {
+		this.phoneId=phoneId;
+	}
+	public String getOs() {
+		return os;
+	}
+	public void setOs(String os) {
+		this.os=os;
+	}
+	public String getBrand() {
+		return brand;
+	}
+	public void setBrand(String brand) {
+		this.brand=brand;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price=price;
+	}
+}
